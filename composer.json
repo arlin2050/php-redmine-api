@@ -1,8 +1,8 @@
 {
-    "name": "kbsali/redmine-api",
+    "name": "arlin2050/redmine-api",
     "type": "library",
     "description": "Redmine API client",
-    "homepage": "https://github.com/kbsali/php-redmine-api",
+    "homepage": "https://github.com/arlin2050/php-redmine-api",
     "keywords": ["redmine", "api"],
     "license": "MIT",
     "authors": [
@@ -10,7 +10,12 @@
             "name": "Kevin Saliou",
             "email": "kevin@saliou.name",
             "homepage": "http://kevin.saliou.name"
-        }
+        },
+	{
+	    "name": "André Cardoso",
+            "email": "acardoso@orupaca.fr",
+            "homepage": "https://github.com/arlin2050/"
+	}
     ],
     "require": {
         "php": ">=5.4",
