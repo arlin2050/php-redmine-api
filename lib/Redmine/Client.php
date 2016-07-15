@@ -138,6 +138,16 @@ class Client
     );
 
     /**
+     * @var string CURLOPT_PROXY
+     */
+    private $proxyHost;
+
+    /**
+     * @var string CURLOPT_PROXYUSERPWD
+     */
+    private $proxyPass;
+
+    /**
      * Usage: apikeyOrUsername can be auth key or username.
      * Password needs to be set if username is given.
      *
@@ -145,12 +155,14 @@ class Client
      * @param string      $apikeyOrUsername
      * @param string|null $pass
      */
-    public function __construct($url, $apikeyOrUsername, $pass = null)
+    public function __construct($url, $apikeyOrUsername, $pass = null, $proxyHost = null, $proxyPass = null)
     {
         $this->url = $url;
         $this->getPort();
         $this->apikeyOrUsername = $apikeyOrUsername;
         $this->pass = $pass;
+        $this->proxyHost = $proxyHost;
+        $this->proxyPass = $proxyPass;
     }
 
     /**
@@ -568,6 +580,13 @@ class Client
                 break;
             default: // GET
                 break;
+        }
+
+        if($this->proxyHost) {
+            $this->setCurlOption(CURLOPT_PROXY, $this->proxyHost);
+            if ($this->proxyPass) {
+                $this->setCurlOption(CURLOPT_PROXYUSERPWD, $this->proxyPass);
+            }
         }
 
         // Set all cURL options to the current cURL resource

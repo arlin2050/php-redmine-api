@@ -107,7 +107,7 @@ class CustomField extends AbstractApi
      */
     private function buildXML(array $params = array())
     {
-        $xml = new SimpleXMLElement('<?xml version="1.0"?><custom_field></custom_field>');
+        $xml = new \SimpleXMLElement('<?xml version="1.0"?><custom_field></custom_field>');
 
         foreach ($params as $k => $v) {
             if ('possible_values' === $k && is_array($v)) {
