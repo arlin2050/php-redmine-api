@@ -107,7 +107,7 @@ class CustomField extends AbstractApi
      */
     private function buildXML(array $params = array())
     {
-        $xml = new SimpleXMLElement('<?xml version="1.0"?><custom_field></custom_field>');
+        $xml = new \SimpleXMLElement('<?xml version="1.0"?><custom_field></custom_field>');
 
         foreach ($params as $k => $v) {
             if ('possible_values' === $k && is_array($v)) {
@@ -123,11 +123,11 @@ class CustomField extends AbstractApi
     /**
      * Attaches Custom Fields possible values
      *
-     * @param  SimpleXMLElement $xml    XML Element the custom fields are attached to
+     * @param  \SimpleXMLElement $xml    XML Element the custom fields are attached to
      * @param  array            $fields array of fields to attach, each field needs name, id and value set
-     * @return $xml             SimpleXMLElement
+     * @return $xml             \SimpleXMLElement
      */
-    protected function attachPossibleValuesXML(SimpleXMLElement $xml, array $fields)
+    protected function attachPossibleValuesXML(\SimpleXMLElement $xml, array $fields)
     {
         $_fields = $xml->addChild('possible_values', implode("\r\n",$fields));
         return $xml;
